@@ -9,7 +9,7 @@ using RoR2;
 namespace CommandoRebalance
 {
     [BepInDependency("com.bepis.r2api")]
-    [BepInPlugin("com.Vercility.RoR", "CommandoRebalance", "1.1.0")]
+    [BepInPlugin("com.Vercility.RoR", "CommandoRebalance", "1.2.0")]
     public class Changes : BaseUnityPlugin
     {
         public static ConfigEntry<float> MaxDistance { get; set; }
