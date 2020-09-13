@@ -30,8 +30,8 @@ namespace CommandoRebalance
             Radius = Config.Bind<float>("Stats", "Radius", 1f, "Bullet Radius Multiplier. Default is 1");
             Damage = Config.Bind<float>("Stats", "Damage", 1f, "Damage Multiplier. Default is 1");
             Recoil = Config.Bind<bool>("Misc", "Disable Recoil", true, "Set to true if you want to disable recoil/muzzle spread");
-            Falloff = Config.Bind<bool>("Misc", "Disable Damage Fall off", true, "Set to true if you want to disable damage fall off over distance");
-            IFrame = Config.Bind<float>("Misc", "IFrame duration", 0f, "Duration of Invincibility after using utility skill in seconds. Default is 0");
+            Falloff = Config.Bind<bool>("Misc", "Disable Damage Fall off", false, "Set to true if you want to disable damage fall off over distance");
+            IFrame = Config.Bind<float>("Misc", "IFrame duration", 0.1f, "Duration of Invincibility after using utility skill in seconds. Default is 0.1");
             On.RoR2.BulletAttack.Fire += (orig,self) =>
             {
                 self.maxDistance = MaxDistance.Value;
