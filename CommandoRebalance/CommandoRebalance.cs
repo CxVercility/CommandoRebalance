@@ -34,18 +34,21 @@ namespace CommandoRebalance
             IFrame = Config.Bind<float>("Misc", "IFrame duration", 0.1f, "Duration of Invincibility after using utility skill in seconds. Default is 0.1");
             On.RoR2.BulletAttack.Fire += (orig,self) =>
             {
-                self.maxDistance = MaxDistance.Value;
-                self.damage = self.damage * Damage.Value;
-                self.radius = self.radius * Radius.Value;
-                if (Falloff.Value)
+                if (self.owner.GetComponent<CharacterBody>().name == "CommandoBody(Clone)")
                 {
-                    self.falloffModel = BulletAttack.FalloffModel.None;
-                }
-                if (Recoil.Value)
-                {
-                    self.minSpread = 0.0f;
-                    self.maxSpread = 0.0f;
-                    self.owner.GetComponent<CharacterBody>().SetSpreadBloom(0.0f, false);
+                    self.maxDistance = MaxDistance.Value;
+                    self.damage = self.damage * Damage.Value;
+                    self.radius = self.radius * Radius.Value;
+                    if (Falloff.Value)
+                    {
+                        self.falloffModel = BulletAttack.FalloffModel.None;
+                    }
+                    if (Recoil.Value)
+                    {
+                        self.minSpread = 0.0f;
+                        self.maxSpread = 0.0f;
+                        self.owner.GetComponent<CharacterBody>().SetSpreadBloom(0.0f, false);
+                    }
                 }
                 orig(self);
                   
