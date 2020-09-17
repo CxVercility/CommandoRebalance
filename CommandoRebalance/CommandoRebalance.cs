@@ -9,7 +9,7 @@ using RoR2;
 namespace CommandoRebalance
 {
     [BepInDependency("com.bepis.r2api")]
-    [BepInPlugin("com.Vercility.RoR", "CommandoRebalance", "1.2.0")]
+    [BepInPlugin("com.Vercility.RoR", "CommandoRebalance", "1.3.1")]
     public class Changes : BaseUnityPlugin
     {
         public static ConfigEntry<float> MaxDistance { get; set; }
@@ -34,7 +34,7 @@ namespace CommandoRebalance
             IFrame = Config.Bind<float>("Misc", "IFrame duration", 0.1f, "Duration of Invincibility after using utility skill in seconds. Default is 0.1");
             On.RoR2.BulletAttack.Fire += (orig,self) =>
             {
-                if (self.owner.GetComponent<CharacterBody>().name == "CommandoBody(Clone)")
+                if (self.owner.name == "CommandoBody(Clone)")
                 {
                     self.maxDistance = MaxDistance.Value;
                     self.damage = self.damage * Damage.Value;
