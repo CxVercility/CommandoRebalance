@@ -9,7 +9,7 @@ using RoR2;
 namespace CommandoRebalance
 {
     [BepInDependency("com.bepis.r2api")]
-    [BepInPlugin("com.Vercility.RoR", "CommandoRebalance", "1.3.1")]
+    [BepInPlugin("com.Vercility.RoR", "CommandoRebalance", "1.4.0")]
     public class Changes : BaseUnityPlugin
     {
         public static ConfigEntry<float> MaxDistance { get; set; }
@@ -70,7 +70,7 @@ namespace CommandoRebalance
                     {
                         if (d.outer.commonComponents.characterBody)
                         {
-                            d.outer.commonComponents.characterBody.AddTimedBuff(BuffIndex.Immune, IFrame.Value);
+                            d.outer.commonComponents.characterBody.AddTimedBuff(RoR2Content.Buffs.Immune, IFrame.Value);
                         }
                     }
                 });
@@ -91,7 +91,7 @@ namespace CommandoRebalance
                     {
                         if (d.outer.commonComponents.characterBody)
                         {
-                            d.outer.commonComponents.characterBody.AddTimedBuff(BuffIndex.Immune, IFrame.Value);
+                            d.outer.commonComponents.characterBody.AddTimedBuff(RoR2Content.Buffs.Immune, IFrame.Value);
                         }
                     }
                 });
